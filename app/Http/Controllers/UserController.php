@@ -15,7 +15,7 @@ class UserController extends Controller
         $user = Auth::user();
         $planId = $request["planId"];
         try {
-            DB::transaction(function ($connection, $transaction) use ($user, $planId) {
+            DB::transaction(function () use ($user, $planId) {
                 $user->update([
                     "master_plan_id" => $planId,
                 ]);

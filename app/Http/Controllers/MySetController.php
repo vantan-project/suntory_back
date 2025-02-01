@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MySetStoreRequest;
+use App\Models\Drink;
 use App\Models\MySet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,8 +31,9 @@ class MySetController extends Controller
                     "name" => $mySet["name"],
                 ]);
 
+                $items = $mySet["items"];
                 $createdMySet->mySetItems()->createMany(
-                    collect($mySet["items"])->map(function ($item) {
+                    collect($items)->map(function ($item) {
                         return [
                             "drink_id" => $item["drinkId"],
                             "bottle_count" => $item["bottleCount"],
