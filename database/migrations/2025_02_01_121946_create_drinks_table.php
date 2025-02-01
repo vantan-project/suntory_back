@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger("master_category_id");
             $table->string("name");
             $table->text("image_url");
-            $table->unsignedBigInteger("buy_count");
+            $table->unsignedBigInteger("buy_count")->default(0);
             $table->timestamps();
         });
     }
