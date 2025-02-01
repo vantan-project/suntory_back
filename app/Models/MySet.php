@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class MySet extends Model
 {
-    protected $fillable = ["user_id", "name"];
+    protected $fillable = ["user_id", "name", "is_lacking"];
 
     public function mySetItems(): HasMany
     {

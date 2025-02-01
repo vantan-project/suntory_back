@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger("user_id");
             $table->string("name");
+            $table->boolean("is_lacking")->default(false);
             $table->timestamps();
         });
     }

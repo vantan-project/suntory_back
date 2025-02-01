@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MySetStoreRequest;
-use App\Models\Drink;
 use App\Models\MySet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,6 +12,34 @@ use Exception;
 
 class MySetController extends Controller
 {
+    public function index() {
+        $user = Auth::user();
+        $mySets = $user->mySets()
+            ->with('mySetItems.drink')
+            ->get()
+            ->map(function ($mySet) {
+                return [
+                    "id" => $mySet->id,
+                    "name" => $mySet->name,
+                    "isLacking" => !!$mySet->is_lacking,
+                    "items" => $mySet->mySetItems->map(function ($mySetItem) {
+                        return [
+                            "drinkId" => $mySetItem->drink_id,
+                            "drinkName" => $mySetItem->drink->name,
+                            "imageUrl" => $mySetItem->drink->image_url,
+                            "bottleCount" => $mySetItem->bottle_count,
+                        ];
+                    }),
+                ];
+            })
+            ->toArray();
+
+        return response()->json([
+            "success" => true,
+            "mySets" => $mySets,
+        ]);
+    }
+
     public function store(MySetStoreRequest $request) {
         $user = Auth::user();
         $mySet = $request->validated()["mySet"];
