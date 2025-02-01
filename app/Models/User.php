@@ -26,6 +26,7 @@ class User extends Authenticatable
         'password',
         'is_admin',
         'master_plan_id',
+        'my_set_id',
     ];
 
     /**
