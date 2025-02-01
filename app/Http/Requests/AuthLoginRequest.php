@@ -24,18 +24,18 @@ class AuthLoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'email'],
-            'password' => ['required', 'string'],
+            'user.email' => ['required', 'email'],
+            'user.password' => ['required', 'string'],
         ];
     }
 
     public function messages(): array
     {
         return [
-            'email.required' => 'メールアドレスは必須です',
-            'email.email' => '正しいメールアドレス形式で入力してください',
-            'password.required' => 'パスワードは必須です',
-            'password.string' => 'パスワードは文字列で入力してください'
+            'user.email.required' => 'メールアドレスは必須です',
+            'user.email.email' => '正しいメールアドレス形式で入力してください',
+            'user.password.required' => 'パスワードは必須です',
+            'user.password.string' => 'パスワードは文字列で入力してください'
         ];
     }
 

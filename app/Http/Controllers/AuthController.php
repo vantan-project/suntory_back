@@ -11,16 +11,15 @@ class AuthController extends Controller
 {
     public function login(AuthLoginRequest $request) 
     {
-        $validated = $request->validated();
+        $user = $request->validated()['user'];
 
-        if (Auth::attempt(['email' => $validated["email"], 'password' => $validated["password"]])) {
+        if (Auth::attempt(['email' => $user["email"], 'password' => $user["password"]])) {
             // 認証成功時の処理
-            $user = Auth::user();
-            $token = $user->createToken('authToken')->plainTextToken;
-            
+            $authUser = Auth::user();
             return response()->json([
                 'success' => true,
-                'authToken' => $token,
+                'authToken' => $authUser->createToken('authToken')->plainTextToken,
+                'isAdmin' => !!$authUser->is_admin,
             ]);
         } else {
             // 認証失敗時の処理
@@ -35,16 +34,16 @@ class AuthController extends Controller
 
     public function signUp(AuthSignUpRequest $request)
     {
-        $validated = $request->validated();
+        $user = $request->validated()["user"];
 
-        $user = User::create([
-            'name' => $validated["name"],
-            'email' => $validated["email"],
-            'password' => $validated["password"],
+        $createdUser = User::create([
+            'name' => $user["name"],
+            'email' => $user["email"],
+            'password' => $user["password"],
         ]);
 
-        Auth::login($user);
-        $token = $user->createToken('authToken')->plainTextToken;
+        Auth::login($createdUser);
+        $token = $createdUser->createToken('authToken')->plainTextToken;
         return response()->json([
             'success' => true,
             'authToken' => $token,

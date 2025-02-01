@@ -24,23 +24,23 @@ class AuthSignUpRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email', 'unique:users,email'],
-            'password' => ['required', 'string'],
+            'user.name' => ['required', 'string', 'max:255'],
+            'user.email' => ['required', 'email', 'unique:users,email'],
+            'user.password' => ['required', 'string'],
         ];
     }
 
     public function messages(): array
     {
         return [
-            'email.required' => 'メールアドレスは必須です',
-            'email.email' => '正しいメールアドレス形式で入力してください',
-            'email.unique' => 'このメールアドレスは既に登録されています',
-            'password.required' => 'パスワードは必須です',
-            'password.string' => 'パスワードは文字列で入力してください',
-            'name.required' => '名前は必須です',
-            'name.string' => '名前は文字列で入力してください',
-            'name.max' => '名前は255文字以内で入力してください',
+            'user.email.required' => 'メールアドレスは必須です',
+            'user.email.email' => '正しいメールアドレス形式で入力してください',
+            'user.email.unique' => 'このメールアドレスは既に登録されています',
+            'user.password.required' => 'パスワードは必須です',
+            'user.password.string' => 'パスワードは文字列で入力してください',
+            'user.name.required' => '名前は必須です',
+            'user.name.string' => '名前は文字列で入力してください',
+            'user.name.max' => '名前は255文字以内で入力してください',
         ];
     }
 
