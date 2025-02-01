@@ -69,4 +69,13 @@ class DrinkController extends Controller
             "messages" => ["登録が完了しました"],
         ]);
     }
+
+    public function destroy(Request $request) {
+        Drink::whereIn("id", $request["ids"])->delete();
+
+        return response()->json([
+            "success" => true,
+            "messages" => ["削除が完了しました"],
+        ]);
+    }
 }

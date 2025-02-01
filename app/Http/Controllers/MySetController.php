@@ -81,4 +81,13 @@ class MySetController extends Controller
             "messages" => ["登録が完了しました"],
         ]);
     }
+
+    public function destroy($id) {
+        MySet::find($id)->delete();
+
+        return response()->json([
+            "success" => true,
+            "messages" => ["削除しました"],
+        ]);
+    }
 }
