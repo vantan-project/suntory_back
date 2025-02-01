@@ -33,4 +33,28 @@ class SettingController extends Controller
             "messages" => ["プランの変更に成功しました"],
         ]);
     }
+
+    public function mySet(Request $request)
+    {
+        $user = Auth::user();
+        $mySetId = $request["mySetId"];
+        try {
+            DB::transaction(function () use ($user, $mySetId) {
+                $user->update([
+                    "my_set_id" => $mySetId,
+                ]);
+            });
+        } catch (Exception $e) {
+            Log::warning($e);
+            return response()->json([
+                "success" => false,
+                "messages" => ["マイセットの変更に失敗しました"],
+            ]);
+        }
+
+        return response()->json([
+            "success" => true,
+            "messages" => ["マイセットの変更に成功しました"],
+        ]);
+    }
 }

@@ -25,5 +25,6 @@ Route::middleware("auth:sanctum")->group(function () {
 
     Route::prefix('settings')->group(function () {
         Route::patch('plan', [SettingController::class, 'plan']);
+        Route::patch('my-set', [SettingController::class, 'mySet']);
     });
 });
