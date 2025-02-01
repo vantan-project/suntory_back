@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Drink extends Model
 {
@@ -11,5 +12,10 @@ class Drink extends Model
     public function masterCategory()
     {
         return $this->belongsTo(MasterCategory::class);
+    }
+
+    public function mysetItems(): HasMany
+    {
+        return $this->hasMany(MySetItem::class);
     }
 }

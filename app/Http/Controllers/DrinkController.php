@@ -71,7 +71,18 @@ class DrinkController extends Controller
     }
 
     public function destroy(Request $request) {
-        Drink::whereIn("id", $request["ids"])->delete();
+        $drinks = Drink::whereIn("id", $request["ids"])
+            ->with("mySetItems.mySet")
+            ->get();
+
+            foreach ($drinks as $drink) {
+                foreach ($drink->mySetItems as $mySetItem) {
+                    $mySetItem->mySet()->update([
+                        'is_lacking' => true,
+                    ]);
+                }
+                $drink->delete();
+            }
 
         return response()->json([
             "success" => true,

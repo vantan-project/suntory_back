@@ -53,8 +53,7 @@ class MySetController extends Controller
         
         try {
             DB::transaction(function () use ($user, $mySet) {
-                $createdMySet = MySet::create([
-                    "user_id" => $user->id,
+                $createdMySet = $user->mySets()->create([
                     "name" => $mySet["name"],
                 ]);
 
