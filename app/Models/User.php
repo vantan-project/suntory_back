@@ -61,4 +61,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(MySet::class);
     }
+
+    public function mySet(): BelongsTo
+    {
+        return $this->belongsTo(MySet::class);
+    }
 }

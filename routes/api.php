@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DrinkController;
 use App\Http\Controllers\MySetController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\UserController;
 
 Route::prefix('auth')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
@@ -28,5 +29,9 @@ Route::middleware("auth:sanctum")->group(function () {
     Route::prefix('settings')->group(function () {
         Route::patch('plan', [SettingController::class, 'plan']);
         Route::patch('my-set', [SettingController::class, 'mySet']);
+    });
+
+    Route::prefix('users')->group(function () {
+        Route::get('/my-set', [UserController::class, 'mySet']);
     });
 });
