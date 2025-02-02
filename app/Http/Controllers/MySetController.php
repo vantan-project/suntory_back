@@ -22,6 +22,7 @@ class MySetController extends Controller
                     "id" => $mySet->id,
                     "name" => $mySet->name,
                     "isLacking" => !!$mySet->is_lacking,
+                    "imageUrl" => $mySet->mySetItems->sortByDesc('bottle_count')->first(),
                     "items" => $mySet->mySetItems->map(function ($mySetItem) {
                         return [
                             "drinkId" => $mySetItem->drink_id,

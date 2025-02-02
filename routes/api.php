@@ -24,8 +24,7 @@ Route::middleware("auth:sanctum")->group(function () {
     Route::apiResource('my-sets', MySetController::class);
 
     Route::get('drinks/new', [DrinkController::class, 'new']);
-    Route::delete('drinks', [DrinkController::class, 'destroy']);
-    Route::apiResource('drinks', DrinkController::class)->except(['destrory']);
+    Route::apiResource('drinks', DrinkController::class);
 
     Route::prefix('settings')->group(function () {
         Route::patch('plan', [SettingController::class, 'plan']);

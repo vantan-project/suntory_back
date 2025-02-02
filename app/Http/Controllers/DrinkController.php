@@ -21,17 +21,13 @@ class DrinkController extends Controller
         if ($search["name"]) {
             $drinks = $drinks->where("name", "like", "%" . $search["name"] . "%");
         }
-        if ($search["categoryIds"]) {
-            $drinks = $drinks->whereIn("master_category_id", $search["categoryIds"]);
+        if ($search["categoryId"]) {
+            $drinks = $driniks->where("master_category_id", $search["categoryId"]);
         }
-
-        $currentPage = $search['currentPage'];
-        $drinks = $drinks->paginate(14, ['*'], 'page', $currentPage);
-        $drinkIds = $drinks->pluck('id')->toArray();
 
         return response()->json([
             "success" => true,
-            "drinks" => $drinks->map(function ($drink) {
+            "drinks" => $drinks->get()->map(function ($drink) {
                 return [
                     "id" => $drink->id,
                     "name" => $drink->name,
@@ -40,8 +36,6 @@ class DrinkController extends Controller
                     "categoryName" => $drink->masterCategory->name,
                 ];
             }),
-            "ids" => $drinkIds,
-            "lastPage" => $drinks->lastPage(),
         ]);
     }
 
@@ -70,19 +64,15 @@ class DrinkController extends Controller
         ]);
     }
 
-    public function destroy(Request $request) {
-        $drinks = Drink::whereIn("id", $request["ids"])
-            ->with("mySetItems.mySet")
-            ->get();
+    public function destroy($id) {
+        $drink = Drink::find($id);
 
-            foreach ($drinks as $drink) {
-                foreach ($drink->mySetItems as $mySetItem) {
-                    $mySetItem->mySet()->update([
-                        'is_lacking' => true,
-                    ]);
-                }
-                $drink->delete();
-            }
+        foreach ($drink->mySetItems as $mySetItem) {
+            $mySetItem->mySet()->update([
+                'is_lacking' => true,
+            ]);
+        }
+        $drink->delete();
 
         return response()->json([
             "success" => true,
@@ -94,7 +84,7 @@ class DrinkController extends Controller
     {
         return response()->json([
             "success" => true,
-            "drinks" => Drink::orderBy('created_at', 'desc')
+            "imageUrls" => Drink::orderBy('created_at', 'desc')
                 ->take(5)
                 ->pluck('image_url'),
         ]);
