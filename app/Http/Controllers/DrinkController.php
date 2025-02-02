@@ -14,7 +14,7 @@ class DrinkController extends Controller
 {
     public function index(Request $request) {
         $search = $request["search"];
-        
+
         $drinks = Drink::orderBy("buy_count", "desc")
             ->orderBy("created_at", "desc")
             ->with('masterCategory');
@@ -87,6 +87,16 @@ class DrinkController extends Controller
         return response()->json([
             "success" => true,
             "messages" => ["削除が完了しました"],
+        ]);
+    }
+
+    public function new()
+    {
+        return response()->json([
+            "success" => true,
+            "drinks" => Drink::orderBy('created_at', 'desc')
+                ->take(5)
+                ->pluck('image_url'),
         ]);
     }
 }

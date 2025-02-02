@@ -34,4 +34,18 @@ class UserController extends Controller
             ],
         ]);
     }
+
+    public function plan()
+    {
+        $user = Auth::user();
+        $plan = $user->masterPlan()->first();
+
+        return response()->json([
+            "success" => true,
+            "plan" => $plan ? [
+                "quantity" => $plan->quantity,
+                "price" => $plan->price,
+            ] : null
+        ]);
+    }
 }

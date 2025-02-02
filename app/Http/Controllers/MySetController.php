@@ -50,7 +50,7 @@ class MySetController extends Controller
                 "messages" => ["{$user->masterPlan->quantity}本選択してください"],
             ]);
         }
-        
+
         try {
             DB::transaction(function () use ($user, $mySet) {
                 $createdMySet = $user->mySets()->create([
