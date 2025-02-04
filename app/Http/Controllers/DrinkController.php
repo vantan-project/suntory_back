@@ -98,4 +98,29 @@ class DrinkController extends Controller
                 ->pluck('image_url'),
         ]);
     }
+    public function select(Request $request)
+    {
+        $search = $request["search"];
+
+        $drinks = Drink::orderBy("buy_count", "desc")
+            ->orderBy("created_at", "desc")
+            ->with('masterCategory');
+        if ($search["name"]) {
+            $drinks = $drinks->where("name", "like", "%" . $search["name"] . "%");
+        }
+        if (isset($search["categoryId"])) {
+            $drinks = $drinks->where("master_category_id", $search["categoryId"]);
+        }
+
+        return response()->json([
+            "success" => true,
+            "drinks" => $drinks->get()->map(function ($drink) {
+                return [
+                    "id" => $drink->id,
+                    "name" => $drink->name,
+                    "imageUrl" => $drink->image_url,
+                ];
+            }),
+        ]);
+    }
 }

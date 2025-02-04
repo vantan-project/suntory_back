@@ -25,6 +25,7 @@ Route::middleware("auth:sanctum")->group(function () {
     Route::apiResource('my-sets', MySetController::class);
 
     Route::get('drinks/new', [DrinkController::class, 'new']);
+    Route::get('drinks/select', [DrinkController::class, 'select']);
     Route::apiResource('drinks', DrinkController::class);
 
     Route::prefix('settings')->group(function () {
