@@ -42,9 +42,12 @@ class DrinkController extends Controller
             ];
         })->values();
 
+        // ✅ itemsの長さが大きい順に並び替え
+        $sortedDrinks = $groupedDrinks->sortByDesc(fn($group) => count($group["items"]))->values();
+
         return response()->json([
             "success" => true,
-            "drinks" => $groupedDrinks,
+            "drinks" => $sortedDrinks,
         ]);
     }
 

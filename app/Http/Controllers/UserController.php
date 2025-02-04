@@ -56,6 +56,12 @@ class UserController extends Controller
         });
 
         // 最新の顧客情報を取得
+        if (count($customers->data) === 0) {
+            return response()->json([
+                "success" => true,
+                "plan" => null,
+            ]);
+        }
         $latestCustomer = $customers->data[0];
 
         // 顧客のサブスクリプション情報を取得
