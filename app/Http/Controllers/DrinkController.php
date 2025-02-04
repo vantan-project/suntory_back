@@ -15,27 +15,36 @@ class DrinkController extends Controller
     public function index(Request $request) {
         $search = $request["search"];
 
-        $drinks = Drink::orderBy("buy_count", "desc")
+        $drinksQuery = Drink::orderBy("buy_count", "desc")
             ->orderBy("created_at", "desc")
             ->with('masterCategory');
-        if ($search["name"]) {
-            $drinks = $drinks->where("name", "like", "%" . $search["name"] . "%");
+
+        if (!empty($search["name"])) {
+            $drinksQuery->where("name", "like", "%" . $search["name"] . "%");
         }
-        if ($search["categoryId"]) {
-            $drinks = $drinks->where("master_category_id", $search["categoryId"]);
+        if (!empty($search["categoryId"])) {
+            $drinksQuery->where("master_category_id", $search["categoryId"]);
         }
+
+        $drinks = $drinksQuery->get();
+
+        $groupedDrinks = $drinks->groupBy("master_category_id")->map(function ($drinks) {
+            return [
+                "categoryId" => $drinks->first()->master_category_id,
+                "categoryName" => $drinks->first()->masterCategory->name,
+                "items" => $drinks->map(function ($drink) {
+                    return [
+                        "id" => $drink->id,
+                        "name" => $drink->name,
+                        "imageUrl" => $drink->image_url,
+                    ];
+                })->values(),
+            ];
+        })->values();
 
         return response()->json([
             "success" => true,
-            "drinks" => $drinks->get()->map(function ($drink) {
-                return [
-                    "id" => $drink->id,
-                    "name" => $drink->name,
-                    "imageUrl" => $drink->image_url,
-                    "categoryId" => $drink->master_category_id,
-                    "categoryName" => $drink->masterCategory->name,
-                ];
-            }),
+            "drinks" => $groupedDrinks,
         ]);
     }
 
