@@ -22,7 +22,7 @@ class DrinkController extends Controller
             $drinks = $drinks->where("name", "like", "%" . $search["name"] . "%");
         }
         if ($search["categoryId"]) {
-            $drinks = $driniks->where("master_category_id", $search["categoryId"]);
+            $drinks = $drinks->where("master_category_id", $search["categoryId"]);
         }
 
         return response()->json([
