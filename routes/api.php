@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DrinkController;
 use App\Http\Controllers\MySetController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\StripeController;
 use App\Http\Controllers\UserController;
 use App\Models\MasterCategory;
 

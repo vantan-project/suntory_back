@@ -36,11 +36,11 @@ class DrinkStoreRequest extends FormRequest
             'drink.name.required' => '飲み物の名前は必須です。',
             'drink.name.string' => '飲み物の名前は文字列でなければなりません。',
             'drink.name.max' => '飲み物の名前は255文字以内でなければなりません。',
-            
+
             'drink.imageData.required' => '飲み物の画像は必須です。',
             'drink.imageData.image' => '画像ファイルをアップロードしてください。',
             'drink.imageData.mimes' => '画像はJPEG、PNG、JPG、またはGIF形式でなければなりません。',
-            
+
             'drink.categoryId.required' => 'カテゴリーは必須です。',
             'drink.categoryId.integer' => 'カテゴリーIDは整数でなければなりません。',
             'drink.categoryId.exists' => '指定されたカテゴリーIDは存在しません。',
