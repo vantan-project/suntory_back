@@ -44,8 +44,9 @@ class MySetController extends Controller
     public function store(MySetStoreRequest $request) {
         $user = Auth::user();
         $mySet = $request->validated()["mySet"];
+        $quantity = $request->validated()["quantity"];
 
-        if (collect($mySet["items"])->sum('bottleCount') !== $user->masterPlan->quantity) {
+        if (collect($mySet["items"])->sum('bottleCount') !== $quantity) {
             return response()->json([
                 "success" => false,
                 "messages" => ["{$user->masterPlan->quantity}本選択してください"],

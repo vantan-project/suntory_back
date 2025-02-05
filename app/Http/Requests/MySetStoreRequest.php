@@ -29,6 +29,7 @@ class MySetStoreRequest extends FormRequest
             'mySet.items' => 'required|array',
             'mySet.items.*.drinkId' => 'required|integer',
             'mySet.items.*.bottleCount' => 'required|integer|min:1',
+            'quantity' => 'required|integer|min:1',
         ];
     }
 
@@ -45,6 +46,9 @@ class MySetStoreRequest extends FormRequest
             'mySet.items.*.bottleCount.required' => 'ボトル数は必須です。',
             'mySet.items.*.bottleCount.integer' => 'ボトル数は整数でなければなりません。',
             'mySet.items.*.bottleCount.min' => 'ボトル数は1以上でなければなりません。',
+            'quantity.required' => '数量は必須です。',
+            'quantity.integer' => '数量は整数でなければなりません。',
+            'quantity.min' => '数量は1以上でなければなりません。',
         ];
     }
 
