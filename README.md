@@ -1,66 +1,142 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ドリンク定期購入アプリ
+## 公開URL
+- 9:00~21:00の公開
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+  ~~http://nakao-keito.com:3001~~
 
-## About Laravel
+## アプリケーション概要
+- z世代の若者がスマートで健康に過ごせるように、より`安価`で`楽`なドリンク購入アプリケーションです
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## メンバー
+【プロダクトマネージャー】
+- 中尾 渓斗
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+【フロントエンド】
+- 矢島 悠大
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+【デザイナー】
+- 奥村 瞭汰
+- 小川 弘能
 
-## Learning Laravel
+## 使用技術スタック
+- フロントエンド
+<table>
+    <tr>
+        <td>フレームワーク</td>
+        <td>Next.js</td>
+    </tr>
+    <tr>
+        <td>CSSフレームワーク</td>
+        <td>Tailwind CSS</td>
+    </tr>
+    <tr>
+        <td>開発環境</td>
+        <td>Docker, Git</td>
+    </tr>
+</table>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- バックエンド
+<table>
+    <tr>
+        <td>フレームワーク</td>
+        <td>Laravel</td>
+    </tr>
+    <tr>
+        <td>データベース</td>
+        <td>RDS Mysql</td>
+    </tr>
+    <tr>
+        <td>開発環境</td>
+        <td>Docker, Git</td>
+    </tr>
+</table>
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 実際のアプリケーション画像
+<table>
+    <tr>
+        <td colspan="6">ランディングページ</td>
+    </tr>
+    <tr>
+        <td colspan="6" style="display: flex">
+            <img width="140px" height="auto" src="https://github.com/user-attachments/assets/f6619ad0-b580-48dc-8e70-d39afd3faaca" />
+            <img width="140px" height="auto" src="https://github.com/user-attachments/assets/a900d83b-13e0-40a4-933a-0b124b22de3f" />
+            <img width="140px" height="auto" src="https://github.com/user-attachments/assets/1d3c5a0f-366a-40bd-be51-34e7b0616dae" />
+            <img width="140px" height="auto" src="https://github.com/user-attachments/assets/0c1937b9-f046-4e07-bb47-c6635e39e821" />
+            <img width="140px" height="auto" src="https://github.com/user-attachments/assets/0402977e-51e1-4bda-b6c7-8a7ebeea9ab4" />
+            <img width="140px" height="auto" src="https://github.com/user-attachments/assets/e123bad2-c394-4e27-a083-4404261c3f2c" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            ログインページ
+        </td>
+        <td colspan="3">
+            サインアップページ
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" style="display: flex">
+            <img width="120px" height="auto" src="https://github.com/user-attachments/assets/fa6f819e-95d2-4131-bc07-0e66c1bafb00" />
+            <img width="350px" height="auto" src="https://github.com/user-attachments/assets/a4db4b30-c7f2-4e62-8053-11018ec03cc6" />
+        </td>
+        <td colspan="3" style="display: flex">
+            <img width="120px" height="auto" src="https://github.com/user-attachments/assets/a6763796-745a-402b-b5a4-e716e6f47d0d" />
+            <img width="350px" height="auto" src="https://github.com/user-attachments/assets/38e43145-fe72-4a41-a09c-182c87c64dc3" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">トップページ（ユーザー）</td>
+        <td colspan="2">マイセット一覧ページ</td>
+    </tr>
+    <tr>
+        <td colspan="4" style="display: flex">
+            <img width="140px" height="auto" src="https://github.com/user-attachments/assets/a8c9d6d0-17e0-4df9-a40e-f04d9fd1b4ab" />
+            <img width="140px" height="auto" src="https://github.com/user-attachments/assets/8f4429f5-de2d-4182-bb0b-086b7f78fa31" />
+            <img width="140px" height="auto" src="https://github.com/user-attachments/assets/cea31267-f134-4e82-b623-75469fa3d5d5" />
+            <img width="140px" height="auto" src="https://github.com/user-attachments/assets/dec0af3c-218b-44e9-b50e-e27e8bd4ff93" />
+        </td>
+        <td colspan="2" style="display: flex">
+            <img width="140px" height="auto" src="https://github.com/user-attachments/assets/bd968c91-3cd7-4e4e-bfc0-af6477cba6eb" />
+            <img width="140px" height="auto" src="https://github.com/user-attachments/assets/425e056e-b698-49cb-993e-bf8d944f6c0c" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            マイセット追加ページ
+        </td>
+        <td colspan="2">
+            プラン変更ページ
+        </td>
+        <td colspan="2">
+            設定ページ
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="display: flex">
+            <img width="140px" height="auto" src="https://github.com/user-attachments/assets/5f474c82-acad-4c3f-8769-c438f7828710" />
+            <img width="140px" height="auto" src="https://github.com/user-attachments/assets/e3bed43f-26a9-453a-81b3-e1aa7746c64f" />
+        </td>
+        <td colspan="2">
+            <img width="140px" height="auto" src="https://github.com/user-attachments/assets/6bd18538-00d8-41e3-aa37-80896f9e4499" />
+        </td>
+        <td colspan="2">
+            <img width="140px" height="auto" src="https://github.com/user-attachments/assets/10b0a04e-dd20-4367-80a3-698985edd3a1" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">トップページ（管理）</td>
+        <td colspan="2">ドリンク一覧ページ</td>
+        <td colspan="2">ドリンク追加, 編集ページ</td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <img width="350px" height="auto" src="https://github.com/user-attachments/assets/27c94363-18e6-4f63-8497-8a110101f62f" />
+        </td>
+        <td colspan="2">
+            <img width="350px" height="auto" src="https://github.com/user-attachments/assets/8c745c54-0ce2-4a81-94e8-f4db4658264f" />
+        </td>
+        <td colspan="2">
+            <img width="350px" height="auto" src="https://github.com/user-attachments/assets/1e5165fb-7725-45b1-9938-6d3bd0342bbf" />
+        </td>
+    </tr>
+</table>
