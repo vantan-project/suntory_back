@@ -77,11 +77,11 @@
     <tr>
         <td colspan="3" style="display: flex">
             <img width="100px" height="auto" src="https://github.com/user-attachments/assets/fa6f819e-95d2-4131-bc07-0e66c1bafb00" />
-            <img width="300px" height="auto" src="https://github.com/user-attachments/assets/a4db4b30-c7f2-4e62-8053-11018ec03cc6" />
+            <img width="280px" height="auto" src="https://github.com/user-attachments/assets/a4db4b30-c7f2-4e62-8053-11018ec03cc6" />
         </td>
         <td colspan="3" style="display: flex">
             <img width="100px" height="auto" src="https://github.com/user-attachments/assets/a6763796-745a-402b-b5a4-e716e6f47d0d" />
-            <img width="300px" height="auto" src="https://github.com/user-attachments/assets/38e43145-fe72-4a41-a09c-182c87c64dc3" />
+            <img width="280px" height="auto" src="https://github.com/user-attachments/assets/38e43145-fe72-4a41-a09c-182c87c64dc3" />
         </td>
     </tr>
     <tr>
@@ -140,3 +140,6 @@
         </td>
     </tr>
 </table>
+
+## フロントエンドリポジトリ
+- https://github.com/vantan-project/suntory-front
